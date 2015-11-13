@@ -1,4 +1,4 @@
 loadModel(Modelica);
 loadFile("PipesValveDiscrete.mo");
-simulate(PipesValveDiscrete, outputFormat="csv", stopTime=30);
+simulate(PipesValveDiscrete, outputFormat="csv", stopTime=30, variableFilter="tank2.level");
 plot(tank2.level);
