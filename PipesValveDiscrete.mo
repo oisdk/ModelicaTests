@@ -31,13 +31,13 @@ model PipesValveDiscrete
     dp_nominal=101325,
     m_flow_nominal=0.1
   );
-  Modelica.Blocks.Sources.Ramp valveOpening(
-    duration=20
+  Modelica.Blocks.Sources.BooleanStep valveOpening(
+    startTime=10
   );
   inner Modelica.Fluid.System system;
 equation 
   connect(tank1.ports[1], pipe.port_a);
   connect(pipe.port_b, valve.port_a);
-  connect(valveOpening.y, valve.opening);
+  connect(valveOpening.y, valve.open);
   connect(valve.port_b, tank2.ports[1]);
 end PipesValveDiscrete;

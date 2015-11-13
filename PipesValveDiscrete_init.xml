@@ -1,0 +1,3742 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<!-- description of the model interface using an extention of the FMI standard -->
+<fmiModelDescription
+  fmiVersion                          = "1.0"
+
+  modelName                           = "PipesValveDiscrete"
+  modelIdentifier                     = "PipesValveDiscrete"
+  
+  OPENMODELICAHOME                    = "/opt/openmodelica"
+  
+  guid                                = "{8c4e810f-3df3-4a00-8276-176fa3c9f9e0}"
+  
+  description                         = ""
+  generationTool                      = "OpenModelica Compiler OpenModelica 1.9.3"
+  generationDateAndTime               = "2015-11-13T00:10:38Z"
+  
+  variableNamingConvention            = "structured"
+  
+  numberOfEventIndicators             = "5"  cmt_numberOfEventIndicators             = "NG:       number of zero crossings,                           FMI"
+  numberOfTimeEvents                  = "0"  cmt_numberOfTimeEvents                  = "NG_SAM:   number of zero crossings that are samples,          OMC"
+  
+  numberOfInputVariables              = "0"  cmt_numberOfInputVariables              = "NI:       number of inputvar on topmodel,                     OMC"
+  numberOfOutputVariables             = "0"  cmt_numberOfOutputVariables             = "NO:       number of outputvar on topmodel,                    OMC"
+  
+  numberOfExternalObjects             = "0"  cmt_numberOfExternalObjects             = "NEXT:     number of external objects,                         OMC"
+  numberOfFunctions                   = "49"  cmt_numberOfFunctions                   = "NFUNC:    number of functions used by the simulation,         OMC"
+  
+  numberOfContinuousStates            = "4"  cmt_numberOfContinuousStates            = "NX:       number of states,                                   FMI"
+  numberOfRealAlgebraicVariables      = "88"  cmt_numberOfRealAlgebraicVariables      = "NY:       number of real variables,                           OMC"
+  numberOfRealAlgebraicAliasVariables = "67"  cmt_numberOfRealAlgebraicAliasVariables = "NA:       number of alias variables,                          OMC"
+  numberOfRealParameters              = "81"  cmt_numberOfRealParameters              = "NP:       number of parameters,                               OMC"
+  
+  numberOfIntegerAlgebraicVariables   = "0"  cmt_numberOfIntegerAlgebraicVariables   = "NYINT:    number of alg. int variables,                       OMC"
+  numberOfIntegerAliasVariables       = "0"  cmt_numberOfIntegerAliasVariables       = "NAINT:    number of alias int variables,                      OMC"
+  numberOfIntegerParameters           = "20"  cmt_numberOfIntegerParameters           = "NPINT:    number of int parameters,                           OMC"
+  
+  numberOfStringAlgebraicVariables    = "0"  cmt_numberOfStringAlgebraicVariables    = "NYSTR:    number of alg. string variables,                    OMC"
+  numberOfStringAliasVariables        = "0"  cmt_numberOfStringAliasVariables        = "NASTR:    number of alias string variables,                   OMC"
+  numberOfStringParameters            = "0"  cmt_numberOfStringParameters            = "NPSTR:    number of string parameters,                        OMC"
+  
+  numberOfBooleanAlgebraicVariables   = "5"  cmt_numberOfBooleanAlgebraicVariables   = "NYBOOL:   number of alg. bool variables,                      OMC"
+  numberOfBooleanAliasVariables       = "1"  cmt_numberOfBooleanAliasVariables       = "NABOOL:   number of alias bool variables,                     OMC"
+  numberOfBooleanParameters           = "39"  cmt_numberOfBooleanParameters           = "NPBOOL:   number of bool parameters,                          OMC" >
+  
+  
+  <!-- startTime, stopTime, tolerance are FMI specific, all others are OMC specific -->
+  <DefaultExperiment
+    startTime      = "0.0"
+    stopTime       = "30.0"
+    stepSize       = "0.06"
+    tolerance      = "1e-06"
+    solver         = "dassl"
+    outputFormat   = "csv"
+    variableFilter = ".*" />
+    
+  <!-- variables in the model -->
+  <ModelVariables>
+
+  <ScalarVariable
+  name = "tank1.level"
+  valueReference = "1000"
+  description = "Level height of tank"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "0" classType = "rSta"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "53" startColumn = "3" endLine = "54" endColumn = "29" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.T"
+  valueReference = "1001"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "1" classType = "rSta"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4484" startColumn = "7" endLine = "4484" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.level"
+  valueReference = "1002"
+  description = "Level height of tank"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "2" classType = "rSta"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "53" startColumn = "3" endLine = "54" endColumn = "29" fileWritable = "false">
+  <Real useStart="true" start="1e-15" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.T"
+  valueReference = "1003"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "3" classType = "rSta"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4484" startColumn = "7" endLine = "4484" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank1.level)"
+  valueReference = "1004"
+  description = "Level height of tank"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "0" classType = "rDer"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "53" startColumn = "3" endLine = "54" endColumn = "29" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank1.medium.T)"
+  valueReference = "1005"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "1" classType = "rDer"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4484" startColumn = "7" endLine = "4484" endColumn = "44" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank2.level)"
+  valueReference = "1006"
+  description = "Level height of tank"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "2" classType = "rDer"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "53" startColumn = "3" endLine = "54" endColumn = "29" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank2.medium.T)"
+  valueReference = "1007"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "3" classType = "rDer"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4484" startColumn = "7" endLine = "4484" endColumn = "44" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank1.U)"
+  valueReference = "1008"
+  description = "Internal energy of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "0" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "585" startColumn = "7" endLine = "585" endColumn = "45" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank1.fluidVolume)"
+  valueReference = "1009"
+  description = "Volume"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "1" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "540" startColumn = "7" endLine = "540" endColumn = "43" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank1.m)"
+  valueReference = "1010"
+  description = "Mass of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "2" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "586" startColumn = "7" endLine = "586" endColumn = "32" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank1.medium.T_degC)"
+  valueReference = "1011"
+  description = "Temperature of medium in [degC]"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "3" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4497" startColumn = "7" endLine = "4499" endColumn = "42" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank1.medium.u)"
+  valueReference = "1012"
+  description = "Specific internal energy of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "4" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4487" startColumn = "7" endLine = "4487" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank2.U)"
+  valueReference = "1013"
+  description = "Internal energy of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "5" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "585" startColumn = "7" endLine = "585" endColumn = "45" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank2.fluidVolume)"
+  valueReference = "1014"
+  description = "Volume"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "6" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "540" startColumn = "7" endLine = "540" endColumn = "43" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank2.m)"
+  valueReference = "1015"
+  description = "Mass of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "7" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "586" startColumn = "7" endLine = "586" endColumn = "32" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank2.medium.T_degC)"
+  valueReference = "1016"
+  description = "Temperature of medium in [degC]"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "8" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4497" startColumn = "7" endLine = "4499" endColumn = "42" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "der(tank2.medium.u)"
+  valueReference = "1017"
+  description = "Specific internal energy of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "9" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4487" startColumn = "7" endLine = "4487" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.Fs_p[1]"
+  valueReference = "1018"
+  description = "Pressure forces"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "10" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "1074" startColumn = "9" endLine = "1074" endColumn = "43" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="N" displayUnit="N" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.Ib_flows[1]"
+  valueReference = "1019"
+  description = "Flow of momentum across boundaries"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "11" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "1073" startColumn = "9" endLine = "1073" endColumn = "66" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="N" displayUnit="N" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.Is[1]"
+  valueReference = "1020"
+  description = "Momenta of flow segments"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "12" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "1070" startColumn = "9" endLine = "1070" endColumn = "53" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="kg.m/s" displayUnit="kg.m/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.diameters[1]"
+  valueReference = "1021"
+  description = "mean diameters between segments"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "13" classType = "rAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1244" startColumn = "13" endLine = "1245" endColumn = "44" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.dimensions[1]"
+  valueReference = "1022"
+  description = "Characteristic dimensions for fluid flow (diameters for pipe flow)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "14" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1004" startColumn = "13" endLine = "1005" endColumn = "79" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.dimensions[2]"
+  valueReference = "1023"
+  description = "Characteristic dimensions for fluid flow (diameters for pipe flow)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "15" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1004" startColumn = "13" endLine = "1005" endColumn = "79" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.dp_fric_nominal"
+  valueReference = "1024"
+  description = "pressure loss for nominal conditions"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "16" classType = "rAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1246" startColumn = "13" endLine = "1259" endColumn = "49" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.dps_fg[1]"
+  valueReference = "1025"
+  description = "pressure drop between states"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "17" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1059" startColumn = "13" endLine = "1060" endColumn = "41" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="false" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.mus[1]"
+  valueReference = "1026"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "18" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1055" startColumn = "13" endLine = "1055" endColumn = "125" fileWritable = "false">
+  <Real useStart="true" start="0.001" fixed="false" useNominal="true" nominal="0.001" min="0.0" max="100000000.0" unit="Pa.s" displayUnit="Pa.s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.mus[2]"
+  valueReference = "1027"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "19" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1055" startColumn = "13" endLine = "1055" endColumn = "125" fileWritable = "false">
+  <Real useStart="true" start="0.001" fixed="false" useNominal="true" nominal="0.001" min="0.0" max="100000000.0" unit="Pa.s" displayUnit="Pa.s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.mus_act[1]"
+  valueReference = "1028"
+  description = "Actual viscosity per segment"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "20" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1056" startColumn = "13" endLine = "1056" endColumn = "80" fileWritable = "false">
+  <Real useStart="true" start="0.001" fixed="false" useNominal="true" nominal="0.001" min="0.0" max="100000000.0" unit="Pa.s" displayUnit="Pa.s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.rhos[1]"
+  valueReference = "1029"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "21" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1052" startColumn = "13" endLine = "1052" endColumn = "110" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="1.0" min="0.0" max="100000.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.rhos[2]"
+  valueReference = "1030"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "22" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1052" startColumn = "13" endLine = "1052" endColumn = "110" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="1.0" min="0.0" max="100000.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.rhos_act[1]"
+  valueReference = "1031"
+  description = "Actual density per segment"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "23" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1053" startColumn = "13" endLine = "1053" endColumn = "70" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="1.0" min="0.0" max="100000.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.states[1].T"
+  valueReference = "1032"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "24" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.states[2].T"
+  valueReference = "1033"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "25" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.states[1].p"
+  valueReference = "1034"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "26" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.states[2].p"
+  valueReference = "1035"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "27" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.vs[1]"
+  valueReference = "1036"
+  description = "Mean velocities of fluid flow"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "28" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "994" startColumn = "13" endLine = "995" endColumn = "42" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m/s" displayUnit="m/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.vs[2]"
+  valueReference = "1037"
+  description = "Mean velocities of fluid flow"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "29" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "994" startColumn = "13" endLine = "995" endColumn = "42" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m/s" displayUnit="m/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_a.h_outflow"
+  valueReference = "1038"
+  description = "Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "30" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "16" startColumn = "5" endLine = "17" endColumn = "84" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.Hb_flow"
+  valueReference = "1039"
+  description = "Enthalpy flow across boundaries or energy source/sink"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "31" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "599" startColumn = "7" endLine = "600" endColumn = "62" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.U"
+  valueReference = "1040"
+  description = "Internal energy of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "32" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "585" startColumn = "7" endLine = "585" endColumn = "45" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="J" displayUnit="J" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.Wb_flow"
+  valueReference = "1041"
+  description = "Work flow across boundaries or source term"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "33" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "603" startColumn = "7" endLine = "603" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.fluidVolume"
+  valueReference = "1042"
+  description = "Volume"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "34" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "540" startColumn = "7" endLine = "540" endColumn = "43" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="false" unit="m3" displayUnit="m3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.Ts[1]"
+  valueReference = "1043"
+  description = "Temperatures defined by fluid states"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "35" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "503" startColumn = "5" endLine = "504" endColumn = "45" fileWritable = "false">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.heatPorts[1].Q_flow"
+  valueReference = "1044"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "36" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2836" startColumn = "7" endLine = "2837" endColumn = "79" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.surfaceAreas[1]"
+  valueReference = "1045"
+  description = "Heat transfer areas"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "37" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "480" startColumn = "5" endLine = "480" endColumn = "56" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.m"
+  valueReference = "1046"
+  description = "Mass of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "38" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "586" startColumn = "7" endLine = "586" endColumn = "32" fileWritable = "false">
+  <Real useStart="true" start="995.586" fixed="false" useNominal="false" min="0.0" unit="kg" displayUnit="kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.mb_flow"
+  valueReference = "1047"
+  description = "Mass flows across boundaries"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "39" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "594" startColumn = "7" endLine = "594" endColumn = "61" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="false" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.MM"
+  valueReference = "1048"
+  description = "Molar mass (of mixture or single fluid)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "40" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4489" startColumn = "7" endLine = "4489" endColumn = "61" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="0.032" min="0.001" max="0.25" unit="kg/mol" displayUnit="kg/mol" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.R"
+  valueReference = "1049"
+  description = "Gas constant (of mixture if applicable)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "41" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4488" startColumn = "7" endLine = "4488" endColumn = "71" fileWritable = "false">
+  <Real useStart="true" start="1000.0" fixed="false" useNominal="true" nominal="1000.0" min="0.0" max="10000000.0" unit="J/(kg.K)" displayUnit="J/(kg.K)" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.T_degC"
+  valueReference = "1050"
+  description = "Temperature of medium in [degC]"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "42" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4497" startColumn = "7" endLine = "4499" endColumn = "42" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="degC" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.X[1]"
+  valueReference = "1051"
+  description = "Mass fractions (= (component mass)/total mass  m_i/m)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "43" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4485" startColumn = "7" endLine = "4486" endColumn = "64" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="0.1" min="0.0" max="1.0" unit="kg/kg" displayUnit="kg/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.d"
+  valueReference = "1052"
+  description = "Density of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "44" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4483" startColumn = "7" endLine = "4483" endColumn = "36" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="1.0" min="0.0" max="100000.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.p_bar"
+  valueReference = "1053"
+  description = "Absolute pressure of medium in [bar]"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "45" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4500" startColumn = "7" endLine = "4502" endColumn = "47" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="bar" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.u"
+  valueReference = "1054"
+  description = "Specific internal energy of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "46" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4487" startColumn = "7" endLine = "4487" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="1000000.0" min="-100000000.0" max="100000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portAreas[1]"
+  valueReference = "1055"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "47" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "265" startColumn = "9" endLine = "265" endColumn = "104" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portInDensities[1]"
+  valueReference = "1056"
+  description = "densities of the fluid at the device boundary"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "48" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "251" startColumn = "9" endLine = "252" endColumn = "56" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="1.0" min="0.0" max="100000.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portVelocities[1]"
+  valueReference = "1057"
+  description = "velocities of fluid flow at device boundary"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "49" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "253" startColumn = "9" endLine = "254" endColumn = "54" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m/s" displayUnit="m/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.ports[1].h_outflow"
+  valueReference = "1058"
+  description = "Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "50" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "16" startColumn = "5" endLine = "17" endColumn = "84" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.ports_E_flow[1]"
+  valueReference = "1059"
+  description = "flow of kinetic and potential energy at device boundary"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "51" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "255" startColumn = "9" endLine = "256" endColumn = "66" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.ports_H_flow[1]"
+  valueReference = "1060"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "52" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "220" startColumn = "9" endLine = "220" endColumn = "53" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="1000.0" min="-100000000.0" max="100000000.0" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.ports_penetration[1]"
+  valueReference = "1061"
+  description = "penetration of port with fluid, depending on fluid level and port diameter"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "53" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "261" startColumn = "9" endLine = "262" endColumn = "85" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.s[1]"
+  valueReference = "1062"
+  description = "curve parameters for port flows vs. port pressures; for further details see, Modelica Tutorial: Ideal switching devices"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "54" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "259" startColumn = "9" endLine = "260" endColumn = "130" fileWritable = "false">
+  <Real useStart="true" start="1.1" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.vessel_ps_static[1]"
+  valueReference = "1063"
+  description = "static pressures inside the vessel at the height of the corresponding ports, zero flow velocity"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "55" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "266" startColumn = "9" endLine = "267" endColumn = "106" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.Hb_flow"
+  valueReference = "1064"
+  description = "Enthalpy flow across boundaries or energy source/sink"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "56" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "599" startColumn = "7" endLine = "600" endColumn = "62" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.U"
+  valueReference = "1065"
+  description = "Internal energy of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "57" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "585" startColumn = "7" endLine = "585" endColumn = "45" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="J" displayUnit="J" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.Wb_flow"
+  valueReference = "1066"
+  description = "Work flow across boundaries or source term"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "58" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "603" startColumn = "7" endLine = "603" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.fluidVolume"
+  valueReference = "1067"
+  description = "Volume"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "59" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "540" startColumn = "7" endLine = "540" endColumn = "43" fileWritable = "false">
+  <Real useStart="true" start="1e-15" fixed="false" useNominal="false" unit="m3" displayUnit="m3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.Ts[1]"
+  valueReference = "1068"
+  description = "Temperatures defined by fluid states"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "60" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "503" startColumn = "5" endLine = "504" endColumn = "45" fileWritable = "false">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.heatPorts[1].Q_flow"
+  valueReference = "1069"
+  description = "Heat flow rate (positive if flowing from outside into the component)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "61" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2836" startColumn = "7" endLine = "2837" endColumn = "79" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.surfaceAreas[1]"
+  valueReference = "1070"
+  description = "Heat transfer areas"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "62" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "480" startColumn = "5" endLine = "480" endColumn = "56" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.m"
+  valueReference = "1071"
+  description = "Mass of fluid"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "63" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "586" startColumn = "7" endLine = "586" endColumn = "32" fileWritable = "false">
+  <Real useStart="true" start="9.955860000000001e-13" fixed="false" useNominal="false" min="0.0" unit="kg" displayUnit="kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.MM"
+  valueReference = "1072"
+  description = "Molar mass (of mixture or single fluid)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "64" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4489" startColumn = "7" endLine = "4489" endColumn = "61" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="0.032" min="0.001" max="0.25" unit="kg/mol" displayUnit="kg/mol" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.R"
+  valueReference = "1073"
+  description = "Gas constant (of mixture if applicable)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "65" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4488" startColumn = "7" endLine = "4488" endColumn = "71" fileWritable = "false">
+  <Real useStart="true" start="1000.0" fixed="false" useNominal="true" nominal="1000.0" min="0.0" max="10000000.0" unit="J/(kg.K)" displayUnit="J/(kg.K)" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.T_degC"
+  valueReference = "1074"
+  description = "Temperature of medium in [degC]"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "66" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4497" startColumn = "7" endLine = "4499" endColumn = "42" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="degC" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.X[1]"
+  valueReference = "1075"
+  description = "Mass fractions (= (component mass)/total mass  m_i/m)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "67" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4485" startColumn = "7" endLine = "4486" endColumn = "64" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="0.1" min="0.0" max="1.0" unit="kg/kg" displayUnit="kg/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.d"
+  valueReference = "1076"
+  description = "Density of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "68" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4483" startColumn = "7" endLine = "4483" endColumn = "36" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="1.0" min="0.0" max="100000.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.p_bar"
+  valueReference = "1077"
+  description = "Absolute pressure of medium in [bar]"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "69" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4500" startColumn = "7" endLine = "4502" endColumn = "47" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="bar" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.u"
+  valueReference = "1078"
+  description = "Specific internal energy of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "70" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4487" startColumn = "7" endLine = "4487" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="1000000.0" min="-100000000.0" max="100000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portAreas[1]"
+  valueReference = "1079"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "71" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "265" startColumn = "9" endLine = "265" endColumn = "104" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portInDensities[1]"
+  valueReference = "1080"
+  description = "densities of the fluid at the device boundary"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "72" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "251" startColumn = "9" endLine = "252" endColumn = "56" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="1.0" min="0.0" max="100000.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portVelocities[1]"
+  valueReference = "1081"
+  description = "velocities of fluid flow at device boundary"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "73" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "253" startColumn = "9" endLine = "254" endColumn = "54" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m/s" displayUnit="m/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.ports[1].h_outflow"
+  valueReference = "1082"
+  description = "Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "74" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "16" startColumn = "5" endLine = "17" endColumn = "84" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.ports[1].p"
+  valueReference = "1083"
+  description = "Thermodynamic pressure in the connection point"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "75" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "15" startColumn = "5" endLine = "15" endColumn = "79" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.ports_E_flow[1]"
+  valueReference = "1084"
+  description = "flow of kinetic and potential energy at device boundary"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "76" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "255" startColumn = "9" endLine = "256" endColumn = "66" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.ports_H_flow[1]"
+  valueReference = "1085"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "77" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "220" startColumn = "9" endLine = "220" endColumn = "53" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="1000.0" min="-100000000.0" max="100000000.0" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.ports_penetration[1]"
+  valueReference = "1086"
+  description = "penetration of port with fluid, depending on fluid level and port diameter"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "78" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "261" startColumn = "9" endLine = "262" endColumn = "85" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.s[1]"
+  valueReference = "1087"
+  description = "curve parameters for port flows vs. port pressures; for further details see, Modelica Tutorial: Ideal switching devices"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "79" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "259" startColumn = "9" endLine = "260" endColumn = "130" fileWritable = "false">
+  <Real useStart="true" start="1.1" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.vessel_ps_static[1]"
+  valueReference = "1088"
+  description = "static pressures inside the vessel at the height of the corresponding ports, zero flow velocity"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "80" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "266" startColumn = "9" endLine = "267" endColumn = "106" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.V_flow"
+  valueReference = "1089"
+  description = "Volume flow rate at inflowing port (positive when flow from port_a to port_b)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "81" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "338" startColumn = "3" endLine = "343" endColumn = "86" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m3/s" displayUnit="m3/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.dp"
+  valueReference = "1090"
+  description = "Pressure difference between port_a and port_b (= port_a.p - port_b.p)"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "82" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "335" startColumn = "3" endLine = "336" endColumn = "78" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="false" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_a_T"
+  valueReference = "1091"
+  description = "Temperature close to port_a, if show_T = true"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "83" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "345" startColumn = "3" endLine = "350" endColumn = "54" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_b.h_outflow"
+  valueReference = "1092"
+  description = "Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "84" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "16" startColumn = "5" endLine = "17" endColumn = "84" fileWritable = "false">
+  <Real useStart="true" start="112340.4000000001" fixed="false" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_b_T"
+  valueReference = "1093"
+  description = "Temperature close to port_b, if show_T = true"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "85" classType = "rAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "351" startColumn = "3" endLine = "356" endColumn = "54" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.state_a.T"
+  valueReference = "1094"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "86" classType = "rAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.state_b.T"
+  valueReference = "1095"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "87" classType = "rAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.V"
+  valueReference = "1096"
+  description = "volume size"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "0" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "266" startColumn = "7" endLine = "266" endColumn = "75" fileWritable = "false">
+  <Real useStart="true" start="0.007853981633974483" fixed="true" useNominal="false" unit="m3" displayUnit="m3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.crossArea"
+  valueReference = "1097"
+  description = "Inner cross section area"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "1" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "257" startColumn = "7" endLine = "259" endColumn = "83" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.diameter"
+  valueReference = "1098"
+  description = "Diameter of circular pipe"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "2" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "255" startColumn = "7" endLine = "256" endColumn = "64" fileWritable = "false">
+  <Real useStart="true" start="0.1" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.Re_turbulent"
+  valueReference = "1099"
+  description = "Start of turbulent regime, depending on type of flow device"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "3" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1063" startColumn = "13" endLine = "1064" endColumn = "72" fileWritable = "false">
+  <Real useStart="true" start="4000.0" fixed="true" useNominal="false" unit="1" displayUnit="1" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.dp_nominal"
+  valueReference = "1100"
+  description = "Nominal pressure loss (only for nominal models)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "4" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1222" startColumn = "13" endLine = "1223" endColumn = "60" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.dp_small"
+  valueReference = "1101"
+  description = "Within regularization if |dp| &lt; dp_small (may be wider for large discontinuities in static head)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "5" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1230" startColumn = "13" endLine = "1232" endColumn = "79" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.g"
+  valueReference = "1102"
+  description = "Constant gravity acceleration"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "6" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1013" startColumn = "13" endLine = "1015" endColumn = "92" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" unit="m/s2" displayUnit="m/s2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.m_flow_nominal"
+  valueReference = "1103"
+  description = "Nominal mass flow rate"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "7" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1224" startColumn = "13" endLine = "1224" endColumn = "78" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.m_flow_small"
+  valueReference = "1104"
+  description = "Within regularization if |m_flows| &lt; m_flow_small (may be wider for large discontinuities in static head)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "8" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1225" startColumn = "13" endLine = "1227" endColumn = "87" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.m_flow_start"
+  valueReference = "1105"
+  description = "Start value of mass flow rates"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "9" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1026" startColumn = "13" endLine = "1028" endColumn = "97" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.mu_nominal"
+  valueReference = "1106"
+  description = "Nominal dynamic viscosity (e.g., mu_liquidWater = 1e-3, mu_air = 1.8e-5)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "10" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1087" startColumn = "13" endLine = "1091" endColumn = "74" fileWritable = "false">
+  <Real useStart="true" start="0.001" fixed="true" useNominal="false" min="0.0" unit="Pa.s" displayUnit="Pa.s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.nParallel"
+  valueReference = "1107"
+  description = "number of identical parallel flow devices"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "11" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "998" startColumn = "13" endLine = "1000" endColumn = "90" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.p_a_start"
+  valueReference = "1108"
+  description = "Start value for p[1] at design inflow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "12" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1029" startColumn = "13" endLine = "1031" endColumn = "97" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.p_b_start"
+  valueReference = "1109"
+  description = "Start value for p[n+1] at design outflow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "13" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1032" startColumn = "13" endLine = "1034" endColumn = "97" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.rho_nominal"
+  valueReference = "1110"
+  description = "Nominal density (e.g., rho_liquidWater = 995, rho_air = 1.2)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "14" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1080" startColumn = "13" endLine = "1082" endColumn = "75" fileWritable = "false">
+  <Real useStart="true" start="995.586" fixed="true" useNominal="false" min="0.0" unit="kg/m3" displayUnit="g/cm3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.height_ab"
+  valueReference = "1111"
+  description = "Height(port_b) - Height(port_a)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "15" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "269" startColumn = "7" endLine = "270" endColumn = "50" fileWritable = "false">
+  <Real useStart="true" start="-1.0" fixed="true" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.length"
+  valueReference = "1112"
+  description = "Length"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "16" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "250" startColumn = "7" endLine = "251" endColumn = "60" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.m_flow_start"
+  valueReference = "1113"
+  description = "Start value for mass flow rate"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "17" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "17" startColumn = "5" endLine = "19" endColumn = "65" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.nParallel"
+  valueReference = "1114"
+  description = "Number of identical parallel pipes"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "18" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "248" startColumn = "7" endLine = "249" endColumn = "45" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" min="1.0" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.p_a_start"
+  valueReference = "1115"
+  description = "Start value of pressure at port a"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "19" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "11" startColumn = "5" endLine = "13" endColumn = "49" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.p_b_start"
+  valueReference = "1116"
+  description = "Start value of pressure at port b"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "20" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "14" startColumn = "5" endLine = "16" endColumn = "49" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.perimeter"
+  valueReference = "1117"
+  description = "Inner perimeter"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "21" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "260" startColumn = "7" endLine = "262" endColumn = "83" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.roughness"
+  valueReference = "1118"
+  description = "Average height of surface asperities (default: smooth steel pipe)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "22" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "263" startColumn = "7" endLine = "265" endColumn = "47" fileWritable = "false">
+  <Real useStart="true" start="2.5e-05" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.T_ambient"
+  valueReference = "1119"
+  description = "Default ambient temperature"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "23" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "11" startColumn = "3" endLine = "13" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="293.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.T_start"
+  valueReference = "1120"
+  description = "Default start value for temperatures"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "24" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "47" startColumn = "3" endLine = "49" endColumn = "47" fileWritable = "false">
+  <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.dp_small"
+  valueReference = "1121"
+  description = "Default small pressure drop for regularization of laminar and zero flow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "25" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "60" startColumn = "3" endLine = "62" endColumn = "81" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.eps_m_flow"
+  valueReference = "1122"
+  description = "Regularization of zero flow for |m_flow| &lt; eps_m_flow*m_flow_nominal"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "26" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "57" startColumn = "3" endLine = "59" endColumn = "62" fileWritable = "false">
+  <Real useStart="true" start="0.0001" fixed="true" useNominal="false" min="0.0" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.g"
+  valueReference = "1123"
+  description = "Constant gravity acceleration"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "27" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "14" startColumn = "3" endLine = "16" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="9.806649999999999" fixed="true" useNominal="false" unit="m/s2" displayUnit="m/s2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.m_flow_nominal"
+  valueReference = "1124"
+  description = "Default nominal mass flow rate"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "28" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "54" startColumn = "3" endLine = "56" endColumn = "60" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.m_flow_small"
+  valueReference = "1125"
+  description = "Default small mass flow rate for regularization of laminar and zero flow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "29" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "63" startColumn = "3" endLine = "65" endColumn = "83" fileWritable = "false">
+  <Real useStart="true" start="0.01" fixed="true" useNominal="false" min="0.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.m_flow_start"
+  valueReference = "1126"
+  description = "Default start value for mass flow rates"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "30" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "41" startColumn = "3" endLine = "43" endColumn = "47" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.p_ambient"
+  valueReference = "1127"
+  description = "Default ambient pressure"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "31" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "8" startColumn = "3" endLine = "10" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="101325.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.p_start"
+  valueReference = "1128"
+  description = "Default start value for pressures"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "32" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "44" startColumn = "3" endLine = "46" endColumn = "47" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.T_ambient"
+  valueReference = "1129"
+  description = "Tank surface Temperature"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "33" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "65" startColumn = "3" endLine = "67" endColumn = "63" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="true" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.T_start"
+  valueReference = "1130"
+  description = "Start value of temperature"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "34" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "563" startColumn = "7" endLine = "566" endColumn = "73" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="true" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.X_start[1]"
+  valueReference = "1131"
+  description = "Start value of mass fractions m_i/m"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "35" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "571" startColumn = "7" endLine = "573" endColumn = "73" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="true" nominal="0.1" min="0.0" max="1.0" unit="kg/kg" displayUnit="kg/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.crossArea"
+  valueReference = "1132"
+  description = "Area of tank"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "36" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "59" startColumn = "3" endLine = "59" endColumn = "45" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.fluidLevel_max"
+  valueReference = "1133"
+  description = "maximum level of fluid in the vessel"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "37" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "276" startColumn = "9" endLine = "277" endColumn = "47" fileWritable = "false">
+  <Real useStart="true" start="1.1" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.h_start"
+  valueReference = "1134"
+  description = "Start value of specific enthalpy"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "38" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "567" startColumn = "7" endLine = "570" endColumn = "77" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.T_ambient"
+  valueReference = "1135"
+  description = "Ambient temperature"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "39" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "492" startColumn = "5" endLine = "493" endColumn = "42" fileWritable = "false">
+  <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.k"
+  valueReference = "1136"
+  description = "Heat transfer coefficient to ambient"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "40" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "489" startColumn = "5" endLine = "491" endColumn = "56" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" unit="W/(m2.K)" displayUnit="W/(m2.K)" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.height"
+  valueReference = "1137"
+  description = "Height of tank"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "41" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "58" startColumn = "3" endLine = "58" endColumn = "46" fileWritable = "false">
+  <Real useStart="true" start="1.1" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.level_start"
+  valueReference = "1138"
+  description = "Start value of tank level"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "42" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "70" startColumn = "3" endLine = "72" endColumn = "45" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.level_start_eps"
+  valueReference = "1139"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "43" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "85" startColumn = "3" endLine = "85" endColumn = "87" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.m_flow_nominal"
+  valueReference = "1140"
+  description = "Nominal value for mass flow rates in ports"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "44" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "210" startColumn = "9" endLine = "212" endColumn = "110" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.m_flow_small"
+  valueReference = "1141"
+  description = "Regularization range at zero mass flow rate"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "45" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "213" startColumn = "9" endLine = "215" endColumn = "110" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" min="0.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.p_ambient"
+  valueReference = "1142"
+  description = "Tank surface pressure"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "46" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "62" startColumn = "3" endLine = "64" endColumn = "63" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.p_start"
+  valueReference = "1143"
+  description = "Start value of pressure"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "47" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "557" startColumn = "7" endLine = "559" endColumn = "51" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData[1].diameter"
+  valueReference = "1144"
+  description = "Inner (hydraulic) diameter of inlet/outlet port"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "48" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "546" startColumn = "7" endLine = "547" endColumn = "58" fileWritable = "false">
+  <Real useStart="true" start="0.1" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData[1].height"
+  valueReference = "1145"
+  description = "Height over the bottom of the vessel"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "49" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "548" startColumn = "7" endLine = "548" endColumn = "76" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData[1].zeta_in"
+  valueReference = "1146"
+  description = "Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "50" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "551" startColumn = "7" endLine = "552" endColumn = "104" fileWritable = "false">
+  <Real useStart="true" start="1.04" fixed="true" useNominal="false" min="0.0" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData[1].zeta_out"
+  valueReference = "1147"
+  description = "Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "51" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "549" startColumn = "7" endLine = "550" endColumn = "105" fileWritable = "false">
+  <Real useStart="true" start="0.5" fixed="true" useNominal="false" min="0.0" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.vesselArea"
+  valueReference = "1148"
+  description = "Area of the vessel used to relate to cross flow area of ports"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "52" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "278" startColumn = "9" endLine = "279" endColumn = "72" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.T_ambient"
+  valueReference = "1149"
+  description = "Tank surface Temperature"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "53" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "65" startColumn = "3" endLine = "67" endColumn = "63" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="true" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.T_start"
+  valueReference = "1150"
+  description = "Start value of temperature"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "54" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "563" startColumn = "7" endLine = "566" endColumn = "73" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="true" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.X_start[1]"
+  valueReference = "1151"
+  description = "Start value of mass fractions m_i/m"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "55" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "571" startColumn = "7" endLine = "573" endColumn = "73" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="true" nominal="0.1" min="0.0" max="1.0" unit="kg/kg" displayUnit="kg/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.crossArea"
+  valueReference = "1152"
+  description = "Area of tank"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "56" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "59" startColumn = "3" endLine = "59" endColumn = "45" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.fluidLevel_max"
+  valueReference = "1153"
+  description = "maximum level of fluid in the vessel"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "57" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "276" startColumn = "9" endLine = "277" endColumn = "47" fileWritable = "false">
+  <Real useStart="true" start="1.1" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.h_start"
+  valueReference = "1154"
+  description = "Start value of specific enthalpy"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "58" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "567" startColumn = "7" endLine = "570" endColumn = "77" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.T_ambient"
+  valueReference = "1155"
+  description = "Ambient temperature"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "59" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "492" startColumn = "5" endLine = "493" endColumn = "42" fileWritable = "false">
+  <Real useStart="true" start="288.15" fixed="true" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.k"
+  valueReference = "1156"
+  description = "Heat transfer coefficient to ambient"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "60" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "489" startColumn = "5" endLine = "491" endColumn = "56" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" unit="W/(m2.K)" displayUnit="W/(m2.K)" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.height"
+  valueReference = "1157"
+  description = "Height of tank"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "61" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "58" startColumn = "3" endLine = "58" endColumn = "46" fileWritable = "false">
+  <Real useStart="true" start="1.1" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.level_start"
+  valueReference = "1158"
+  description = "Start value of tank level"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "62" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "70" startColumn = "3" endLine = "72" endColumn = "45" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.level_start_eps"
+  valueReference = "1159"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "63" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "85" startColumn = "3" endLine = "85" endColumn = "87" fileWritable = "false">
+  <Real useStart="true" start="1e-15" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.m_flow_nominal"
+  valueReference = "1160"
+  description = "Nominal value for mass flow rates in ports"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "64" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "210" startColumn = "9" endLine = "212" endColumn = "110" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.m_flow_small"
+  valueReference = "1161"
+  description = "Regularization range at zero mass flow rate"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "65" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "213" startColumn = "9" endLine = "215" endColumn = "110" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" min="0.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.p_ambient"
+  valueReference = "1162"
+  description = "Tank surface pressure"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "66" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "62" startColumn = "3" endLine = "64" endColumn = "63" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.p_start"
+  valueReference = "1163"
+  description = "Start value of pressure"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "67" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "557" startColumn = "7" endLine = "559" endColumn = "51" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData[1].diameter"
+  valueReference = "1164"
+  description = "Inner (hydraulic) diameter of inlet/outlet port"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "68" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "546" startColumn = "7" endLine = "547" endColumn = "58" fileWritable = "false">
+  <Real useStart="true" start="0.1" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData[1].height"
+  valueReference = "1165"
+  description = "Height over the bottom of the vessel"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "69" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "548" startColumn = "7" endLine = "548" endColumn = "76" fileWritable = "false">
+  <Real useStart="true" start="0.5" fixed="true" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData[1].zeta_in"
+  valueReference = "1166"
+  description = "Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "70" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "551" startColumn = "7" endLine = "552" endColumn = "104" fileWritable = "false">
+  <Real useStart="true" start="1.04" fixed="true" useNominal="false" min="0.0" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData[1].zeta_out"
+  valueReference = "1167"
+  description = "Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "71" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "549" startColumn = "7" endLine = "550" endColumn = "105" fileWritable = "false">
+  <Real useStart="true" start="0.5" fixed="true" useNominal="false" min="0.0" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.vesselArea"
+  valueReference = "1168"
+  description = "Area of the vessel used to relate to cross flow area of ports"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "72" classType = "rPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "278" startColumn = "9" endLine = "279" endColumn = "72" fileWritable = "false">
+  <Real useStart="true" start="1.0" fixed="true" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.dp_nominal"
+  valueReference = "1169"
+  description = "Nominal pressure drop at full opening=1"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "73" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Valves.mo" startLine = "366" startColumn = "5" endLine = "368" endColumn = "58" fileWritable = "false">
+  <Real useStart="true" start="101325.0" fixed="true" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.dp_start"
+  valueReference = "1170"
+  description = "Guess value of dp = port_a.p - port_b.p"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "74" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "312" startColumn = "3" endLine = "314" endColumn = "57" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="true" useNominal="true" nominal="100000.0" min="-9.999999999999999e+59" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.k"
+  valueReference = "1171"
+  description = "Hydraulic conductance at full opening=1"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "75" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Valves.mo" startLine = "371" startColumn = "5" endLine = "372" endColumn = "48" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" unit="kg/(s.Pa)" displayUnit="kg/(s.Pa)" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.m_flow_nominal"
+  valueReference = "1172"
+  description = "Nominal mass flowrate at full opening=1"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "76" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Valves.mo" startLine = "369" startColumn = "5" endLine = "370" endColumn = "48" fileWritable = "false">
+  <Real useStart="true" start="0.1" fixed="true" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.m_flow_small"
+  valueReference = "1173"
+  description = "Small mass flow rate for regularization of zero flow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "77" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "319" startColumn = "3" endLine = "321" endColumn = "41" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.m_flow_start"
+  valueReference = "1174"
+  description = "Guess value of m_flow = port_a.m_flow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "78" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "315" startColumn = "3" endLine = "317" endColumn = "61" fileWritable = "false">
+  <Real useStart="false" fixed="true" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.opening_min"
+  valueReference = "1175"
+  description = "Remaining opening if closed, causing small leakage flow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "79" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Valves.mo" startLine = "378" startColumn = "5" endLine = "379" endColumn = "64" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="true" useNominal="false" min="0.0" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valveOpening.startTime"
+  valueReference = "1176"
+  description = "Time instant of step start"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "80" classType = "rPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Blocks/Sources.mo" startLine = "2734" startColumn = "5" endLine = "2734" endColumn = "77" fileWritable = "false">
+  <Real useStart="true" start="10.0" fixed="true" useNominal="false" unit="s" displayUnit="s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.Fs_fg[1]"
+  valueReference = "1177"
+  description = "Friction and gravity forces"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "negatedAlias" aliasVariable="pipe.flowModel.Fs_p[1]"
+  classIndex = "0" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "1075" startColumn = "9" endLine = "1075" endColumn = "56" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="N" displayUnit="N" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.Res_turbulent_internal[1]"
+  valueReference = "1178"
+  description = "Re_turbulent used internally; to be defined by extending class"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.flowModel.Re_turbulent"
+  classIndex = "1" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1218" startColumn = "13" endLine = "1219" endColumn = "75" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="1" displayUnit="1" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.crossAreas[1]"
+  valueReference = "1179"
+  description = "Cross flow areas at segment boundaries"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.crossArea"
+  classIndex = "2" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1002" startColumn = "13" endLine = "1003" endColumn = "51" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.crossAreas[2]"
+  valueReference = "1180"
+  description = "Cross flow areas at segment boundaries"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.crossArea"
+  classIndex = "3" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1002" startColumn = "13" endLine = "1003" endColumn = "51" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m2" displayUnit="m2" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.dheights[1]"
+  valueReference = "1181"
+  description = "Height(states[2:n]) - Height(states[1:n-1])"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.height_ab"
+  classIndex = "4" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1010" startColumn = "13" endLine = "1011" endColumn = "56" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.m_flows[1]"
+  valueReference = "1182"
+  description = "mass flow rates between states"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "negatedAlias" aliasVariable="tank1.mb_flow"
+  classIndex = "5" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "1053" startColumn = "9" endLine = "1058" endColumn = "39" fileWritable = "false">
+  <Real useStart="true" start="0.0" fixed="false" useNominal="false" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.pathLengths[1]"
+  valueReference = "1183"
+  description = "Lengths along flow path"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.length"
+  classIndex = "6" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "1050" startColumn = "9" endLine = "1050" endColumn = "65" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.pathLengths_internal[1]"
+  valueReference = "1184"
+  description = "pathLengths used internally; to be defined by extending class"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.length"
+  classIndex = "7" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1216" startColumn = "13" endLine = "1217" endColumn = "74" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.roughnesses[1]"
+  valueReference = "1185"
+  description = "Average height of surface asperities"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.roughness"
+  classIndex = "8" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1006" startColumn = "13" endLine = "1007" endColumn = "49" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.roughnesses[2]"
+  valueReference = "1186"
+  description = "Average height of surface asperities"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.roughness"
+  classIndex = "9" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1006" startColumn = "13" endLine = "1007" endColumn = "49" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_a.m_flow"
+  valueReference = "1187"
+  description = "Mass flow rate from the connection point into the component"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "negatedAlias" aliasVariable="tank1.mb_flow"
+  classIndex = "10" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "13" startColumn = "5" endLine = "14" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_a.p"
+  valueReference = "1188"
+  description = "Thermodynamic pressure in the connection point"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.flowModel.states[1].p"
+  classIndex = "11" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "15" startColumn = "5" endLine = "15" endColumn = "79" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_b.h_outflow"
+  valueReference = "1189"
+  description = "Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="valve.port_b.h_outflow"
+  classIndex = "12" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "16" startColumn = "5" endLine = "17" endColumn = "84" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_b.m_flow"
+  valueReference = "1190"
+  description = "Mass flow rate from the connection point into the component"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.mb_flow"
+  classIndex = "13" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "13" startColumn = "5" endLine = "14" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="-100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_b.p"
+  valueReference = "1191"
+  description = "Thermodynamic pressure in the connection point"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.flowModel.states[2].p"
+  classIndex = "14" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "15" startColumn = "5" endLine = "15" endColumn = "79" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.Qb_flow"
+  valueReference = "1192"
+  description = "Heat flow across boundaries or energy source/sink"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.heatTransfer.heatPorts[1].Q_flow"
+  classIndex = "15" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "601" startColumn = "7" endLine = "602" endColumn = "58" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.V"
+  valueReference = "1193"
+  description = "Actual tank volume"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.fluidVolume"
+  classIndex = "16" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "55" startColumn = "3" endLine = "55" endColumn = "66" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m3" displayUnit="m3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.fluidLevel"
+  valueReference = "1194"
+  description = "level of fluid in the vessel for treating heights of ports"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.level"
+  classIndex = "17" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "274" startColumn = "9" endLine = "275" endColumn = "69" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.Q_flows[1]"
+  valueReference = "1195"
+  description = "Heat flow rates"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.heatTransfer.heatPorts[1].Q_flow"
+  classIndex = "18" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "483" startColumn = "5" endLine = "483" endColumn = "56" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.heatPorts[1].T"
+  valueReference = "1196"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.heatTransfer.Ts[1]"
+  classIndex = "19" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2835" startColumn = "7" endLine = "2835" endColumn = "56" fileWritable = "false">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.states[1].T"
+  valueReference = "1197"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.medium.T"
+  classIndex = "20" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.states[1].p"
+  valueReference = "1198"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.p_ambient"
+  classIndex = "21" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.m_flow_turbulent[1]"
+  valueReference = "1199"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.m_flow_small"
+  classIndex = "22" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "271" startColumn = "9" endLine = "271" endColumn = "49" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.h"
+  valueReference = "1200"
+  description = "Specific enthalpy of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.ports[1].h_outflow"
+  classIndex = "23" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4482" startColumn = "7" endLine = "4482" endColumn = "60" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="false" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.p"
+  valueReference = "1201"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.p_ambient"
+  classIndex = "24" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4479" startColumn = "7" endLine = "4479" endColumn = "60" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.state.T"
+  valueReference = "1202"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.medium.T"
+  classIndex = "25" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.state.p"
+  valueReference = "1203"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.p_ambient"
+  classIndex = "26" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.ports[1].m_flow"
+  valueReference = "1204"
+  description = "Mass flow rate from the connection point into the component"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.mb_flow"
+  classIndex = "27" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "13" startColumn = "5" endLine = "14" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.ports[1].p"
+  valueReference = "1205"
+  description = "Thermodynamic pressure in the connection point"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.flowModel.states[1].p"
+  classIndex = "28" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "15" startColumn = "5" endLine = "15" endColumn = "79" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_diameter[1]"
+  valueReference = "1206"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].diameter"
+  classIndex = "29" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "290" startColumn = "9" endLine = "290" endColumn = "72" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_diameter_internal[1]"
+  valueReference = "1207"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].diameter"
+  classIndex = "30" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "285" startColumn = "9" endLine = "286" endColumn = "89" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_height[1]"
+  valueReference = "1208"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].height"
+  classIndex = "31" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "291" startColumn = "9" endLine = "291" endColumn = "70" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_height_internal[1]"
+  valueReference = "1209"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].height"
+  classIndex = "32" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "287" startColumn = "9" endLine = "287" endColumn = "130" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_zeta_in[1]"
+  valueReference = "1210"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].zeta_in"
+  classIndex = "33" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "292" startColumn = "9" endLine = "292" endColumn = "71" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_zeta_in_internal[1]"
+  valueReference = "1211"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].zeta_in"
+  classIndex = "34" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "288" startColumn = "9" endLine = "288" endColumn = "132" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_zeta_out[1]"
+  valueReference = "1212"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].zeta_out"
+  classIndex = "35" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "293" startColumn = "9" endLine = "293" endColumn = "72" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.portsData_zeta_out_internal[1]"
+  valueReference = "1213"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.portsData[1].zeta_out"
+  classIndex = "36" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "289" startColumn = "9" endLine = "289" endColumn = "134" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.Qb_flow"
+  valueReference = "1214"
+  description = "Heat flow across boundaries or energy source/sink"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.heatTransfer.heatPorts[1].Q_flow"
+  classIndex = "37" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "601" startColumn = "7" endLine = "602" endColumn = "58" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.V"
+  valueReference = "1215"
+  description = "Actual tank volume"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.fluidVolume"
+  classIndex = "38" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "55" startColumn = "3" endLine = "55" endColumn = "66" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="m3" displayUnit="m3" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.fluidLevel"
+  valueReference = "1216"
+  description = "level of fluid in the vessel for treating heights of ports"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.level"
+  classIndex = "39" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "274" startColumn = "9" endLine = "275" endColumn = "69" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="0.0" unit="m" displayUnit="m" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.Q_flows[1]"
+  valueReference = "1217"
+  description = "Heat flow rates"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.heatTransfer.heatPorts[1].Q_flow"
+  classIndex = "40" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "483" startColumn = "5" endLine = "483" endColumn = "56" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="W" displayUnit="W" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.heatPorts[1].T"
+  valueReference = "1218"
+  description = "Port temperature"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.heatTransfer.Ts[1]"
+  classIndex = "41" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Thermal/HeatTransfer.mo" startLine = "2835" startColumn = "7" endLine = "2835" endColumn = "56" fileWritable = "false">
+  <Real useStart="true" start="288.15" fixed="false" useNominal="true" nominal="300.0" min="0.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.states[1].T"
+  valueReference = "1219"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.medium.T"
+  classIndex = "42" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.states[1].p"
+  valueReference = "1220"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.p_ambient"
+  classIndex = "43" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.m_flow_turbulent[1]"
+  valueReference = "1221"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.m_flow_small"
+  classIndex = "44" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "271" startColumn = "9" endLine = "271" endColumn = "49" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.mb_flow"
+  valueReference = "1222"
+  description = "Mass flows across boundaries"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "negatedAlias" aliasVariable="tank1.mb_flow"
+  classIndex = "45" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "594" startColumn = "7" endLine = "594" endColumn = "61" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.h"
+  valueReference = "1223"
+  description = "Specific enthalpy of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.ports[1].h_outflow"
+  classIndex = "46" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4482" startColumn = "7" endLine = "4482" endColumn = "60" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="false" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.p"
+  valueReference = "1224"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.p_ambient"
+  classIndex = "47" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4479" startColumn = "7" endLine = "4479" endColumn = "60" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="true" nominal="100000.0" min="0.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.state.T"
+  valueReference = "1225"
+  description = "Temperature of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.medium.T"
+  classIndex = "48" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6376" startColumn = "7" endLine = "6376" endColumn = "44" fileWritable = "false">
+  <Real useStart="true" start="300.0" fixed="false" useNominal="true" nominal="300.0" min="1.0" max="10000.0" unit="K" displayUnit="degC" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.state.p"
+  valueReference = "1226"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.p_ambient"
+  classIndex = "49" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.ports[1].m_flow"
+  valueReference = "1227"
+  description = "Mass flow rate from the connection point into the component"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "negatedAlias" aliasVariable="tank1.mb_flow"
+  classIndex = "50" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "13" startColumn = "5" endLine = "14" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="-100000.0" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_diameter[1]"
+  valueReference = "1228"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].diameter"
+  classIndex = "51" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "290" startColumn = "9" endLine = "290" endColumn = "72" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_diameter_internal[1]"
+  valueReference = "1229"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].diameter"
+  classIndex = "52" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "285" startColumn = "9" endLine = "286" endColumn = "89" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_height[1]"
+  valueReference = "1230"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].height"
+  classIndex = "53" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "291" startColumn = "9" endLine = "291" endColumn = "70" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_height_internal[1]"
+  valueReference = "1231"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].height"
+  classIndex = "54" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "287" startColumn = "9" endLine = "287" endColumn = "130" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_zeta_in[1]"
+  valueReference = "1232"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].zeta_in"
+  classIndex = "55" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "292" startColumn = "9" endLine = "292" endColumn = "71" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_zeta_in_internal[1]"
+  valueReference = "1233"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].zeta_in"
+  classIndex = "56" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "288" startColumn = "9" endLine = "288" endColumn = "132" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_zeta_out[1]"
+  valueReference = "1234"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].zeta_out"
+  classIndex = "57" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "293" startColumn = "9" endLine = "293" endColumn = "72" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.portsData_zeta_out_internal[1]"
+  valueReference = "1235"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.portsData[1].zeta_out"
+  classIndex = "58" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "289" startColumn = "9" endLine = "289" endColumn = "134" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.m_flow"
+  valueReference = "1236"
+  description = "Mass flow rate in design flow direction"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "negatedAlias" aliasVariable="tank1.mb_flow"
+  classIndex = "59" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "332" startColumn = "3" endLine = "334" endColumn = "69" fileWritable = "false">
+  <Real useStart="true" fixed="false" useNominal="false" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_a.h_outflow"
+  valueReference = "1237"
+  description = "Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.ports[1].h_outflow"
+  classIndex = "60" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "16" startColumn = "5" endLine = "17" endColumn = "84" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="true" nominal="1000000.0" min="-10000000000.0" max="10000000000.0" unit="J/kg" displayUnit="J/kg" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_a.m_flow"
+  valueReference = "1238"
+  description = "Mass flow rate from the connection point into the component"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "negatedAlias" aliasVariable="tank1.mb_flow"
+  classIndex = "61" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "13" startColumn = "5" endLine = "14" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" max="100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_a.p"
+  valueReference = "1239"
+  description = "Thermodynamic pressure in the connection point"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.flowModel.states[2].p"
+  classIndex = "62" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "15" startColumn = "5" endLine = "15" endColumn = "79" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_b.m_flow"
+  valueReference = "1240"
+  description = "Mass flow rate from the connection point into the component"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank1.mb_flow"
+  classIndex = "63" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "13" startColumn = "5" endLine = "14" endColumn = "68" fileWritable = "false">
+  <Real useStart="false" fixed="false" useNominal="false" min="-100000.0" unit="kg/s" displayUnit="kg/s" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_b.p"
+  valueReference = "1241"
+  description = "Thermodynamic pressure in the connection point"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.ports[1].p"
+  classIndex = "64" classType = "rAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "15" startColumn = "5" endLine = "15" endColumn = "79" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.state_a.p"
+  valueReference = "1242"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="pipe.flowModel.states[2].p"
+  classIndex = "65" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.state_b.p"
+  valueReference = "1243"
+  description = "Absolute pressure of medium"
+  variability = "continuous" isDiscrete = "false"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="tank2.ports[1].p"
+  classIndex = "66" classType = "rAli"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "6375" startColumn = "7" endLine = "6375" endColumn = "55" fileWritable = "false">
+  <Real useStart="true" start="100000.0" fixed="false" useNominal="true" nominal="100000.0" min="0.0" max="100000000.0" unit="Pa" displayUnit="bar" />
+  </ScalarVariable>
+
+  <ScalarVariable
+  name = "pipe.flowModel.m"
+  valueReference = "1244"
+  description = "Number of flow segments"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "0" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "1047" startColumn = "9" endLine = "1047" endColumn = "56" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.momentumDynamics"
+  valueReference = "1245"
+  description = "Formulation of momentum balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "1" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1021" startColumn = "13" endLine = "1023" endColumn = "109" fileWritable = "false">
+  <Integer useStart="true" start="4" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.n"
+  valueReference = "1246"
+  description = "Number of discrete flow volumes"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "2" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "988" startColumn = "13" endLine = "989" endColumn = "72" fileWritable = "false">
+  <Integer useStart="true" start="2" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.energyDynamics"
+  valueReference = "1247"
+  description = "Default formulation of energy balances"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "3" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "22" startColumn = "3" endLine = "25" endColumn = "77" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.massDynamics"
+  valueReference = "1248"
+  description = "Default formulation of mass balances"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "4" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "26" startColumn = "3" endLine = "28" endColumn = "77" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.momentumDynamics"
+  valueReference = "1249"
+  description = "Default formulation of momentum balances, if options available"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "5" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "35" startColumn = "3" endLine = "38" endColumn = "77" fileWritable = "false">
+  <Integer useStart="true" start="4" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.substanceDynamics"
+  valueReference = "1250"
+  description = "Default formulation of substance balances"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "6" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "29" startColumn = "3" endLine = "31" endColumn = "77" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.traceDynamics"
+  valueReference = "1251"
+  description = "Default formulation of trace substance balances"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "7" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "32" startColumn = "3" endLine = "34" endColumn = "77" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.energyDynamics"
+  valueReference = "1252"
+  description = "Formulation of energy balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "8" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "543" startColumn = "7" endLine = "545" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.n"
+  valueReference = "1253"
+  description = "Number of heat transfer segments"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "9" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "473" startColumn = "5" endLine = "474" endColumn = "79" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.massDynamics"
+  valueReference = "1254"
+  description = "Formulation of mass balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "10" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "546" startColumn = "7" endLine = "548" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.nPorts"
+  valueReference = "1255"
+  description = "Number of ports"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "11" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "195" startColumn = "9" endLine = "196" endColumn = "95" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.substanceDynamics"
+  valueReference = "1256"
+  description = "Formulation of substance balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "12" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "549" startColumn = "7" endLine = "551" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.traceDynamics"
+  valueReference = "1257"
+  description = "Formulation of trace substance balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "13" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "552" startColumn = "7" endLine = "554" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.energyDynamics"
+  valueReference = "1258"
+  description = "Formulation of energy balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "14" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "543" startColumn = "7" endLine = "545" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.n"
+  valueReference = "1259"
+  description = "Number of heat transfer segments"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "15" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "473" startColumn = "5" endLine = "474" endColumn = "79" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.massDynamics"
+  valueReference = "1260"
+  description = "Formulation of mass balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "16" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "546" startColumn = "7" endLine = "548" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.nPorts"
+  valueReference = "1261"
+  description = "Number of ports"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "17" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "195" startColumn = "9" endLine = "196" endColumn = "95" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.substanceDynamics"
+  valueReference = "1262"
+  description = "Formulation of substance balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "18" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "549" startColumn = "7" endLine = "551" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.traceDynamics"
+  valueReference = "1263"
+  description = "Formulation of trace substance balance"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "19" classType = "iPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "552" startColumn = "7" endLine = "554" endColumn = "81" fileWritable = "false">
+  <Integer useStart="true" start="1" fixed="true" />
+  </ScalarVariable>
+
+  <ScalarVariable
+  name = "tank1.inFlow[1]"
+  valueReference = "1264"
+  variability = "discrete" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "0" classType = "bAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "295" startColumn = "9" endLine = "295" endColumn = "81" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.regularFlow[1]"
+  valueReference = "1265"
+  variability = "discrete" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "1" classType = "bAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "294" startColumn = "9" endLine = "294" endColumn = "85" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.inFlow[1]"
+  valueReference = "1266"
+  variability = "discrete" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "2" classType = "bAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "295" startColumn = "9" endLine = "295" endColumn = "81" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.regularFlow[1]"
+  valueReference = "1267"
+  variability = "discrete" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "3" classType = "bAlg"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "294" startColumn = "9" endLine = "294" endColumn = "85" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.open"
+  valueReference = "1268"
+  variability = "discrete" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "4" classType = "bAlg"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Valves.mo" startLine = "373" startColumn = "5" endLine = "377" endColumn = "26" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="false" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.allowFlowReversal"
+  valueReference = "1269"
+  description = "= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "0" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "225" startColumn = "5" endLine = "227" endColumn = "59" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.allowFlowReversal"
+  valueReference = "1270"
+  description = "= true to allow flow reversal, false restricts to design direction (states[1] -&gt; states[n+1])"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "1" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1018" startColumn = "13" endLine = "1020" endColumn = "107" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.constantPressureLossCoefficient"
+  valueReference = "1271"
+  description = "= true if the pressure loss does not depend on fluid states"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "2" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1233" startColumn = "13" endLine = "1236" endColumn = "41" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.continuousFlowReversal"
+  valueReference = "1272"
+  description = "= true if the pressure loss is continuous around zero flow"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "3" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1237" startColumn = "13" endLine = "1242" endColumn = "41" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.from_dp"
+  valueReference = "1273"
+  description = "= true, use m_flow = f(dp), otherwise dp = f(m_flow)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "4" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1201" startColumn = "13" endLine = "1203" endColumn = "67" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.show_Res"
+  valueReference = "1274"
+  description = "= true, if Reynolds numbers are included for plotting"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "5" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1065" startColumn = "13" endLine = "1067" endColumn = "71" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.useUpstreamScheme"
+  valueReference = "1275"
+  description = "= false to average upstream and downstream properties across flow segments"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "6" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1043" startColumn = "13" endLine = "1045" endColumn = "67" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.use_Ib_flows"
+  valueReference = "1276"
+  description = "= true to consider differences in flow of momentum through boundaries"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "7" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1047" startColumn = "13" endLine = "1049" endColumn = "67" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.use_mu_nominal"
+  valueReference = "1277"
+  description = "= true, if mu_nominal is used, otherwise computed from medium"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "8" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1084" startColumn = "13" endLine = "1086" endColumn = "67" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.flowModel.use_rho_nominal"
+  valueReference = "1278"
+  description = "= true, if rho_nominal is used, otherwise computed from medium"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "9" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "1077" startColumn = "13" endLine = "1079" endColumn = "67" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.isCircular"
+  valueReference = "1279"
+  description = "= true if cross sectional area is circular"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "10" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Pipes.mo" startLine = "252" startColumn = "7" endLine = "254" endColumn = "71" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_a_exposesState"
+  valueReference = "1280"
+  description = "= true if port_a exposes the state of a fluid volume"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "11" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "243" startColumn = "5" endLine = "244" endColumn = "61" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.port_b_exposesState"
+  valueReference = "1281"
+  description = "= true if port_b.p exposes the state of a fluid volume"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "12" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "245" startColumn = "5" endLine = "246" endColumn = "63" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "pipe.showDesignFlowDirection"
+  valueReference = "1282"
+  description = "= false to hide the arrow in the model icon"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "13" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "247" startColumn = "5" endLine = "248" endColumn = "52" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.allowFlowReversal"
+  valueReference = "1283"
+  description = "= false to restrict to design flow direction (port_a -&gt; port_b)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "14" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "19" startColumn = "3" endLine = "21" endColumn = "57" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "system.use_eps_Re"
+  valueReference = "1284"
+  description = "= true to determine turbulent region automatically using Reynolds number"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "15" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/System.mo" startLine = "51" startColumn = "3" endLine = "53" endColumn = "56" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.heatTransfer.use_k"
+  valueReference = "1285"
+  description = "= true to use k value for thermal isolation"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "16" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "486" startColumn = "5" endLine = "488" endColumn = "64" fileWritable = "false">
+  <Boolean useStart="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.initialize_p"
+  valueReference = "1286"
+  description = "= true to set up initial equations for pressure"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "17" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "605" startColumn = "7" endLine = "606" endColumn = "56" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.preferredMediumStates"
+  valueReference = "1287"
+  description = "= true if StateSelect.prefer shall be used for the independent property variables of the medium"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "18" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4492" startColumn = "7" endLine = "4494" endColumn = "59" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.medium.standardOrderComponents"
+  valueReference = "1288"
+  description = "If true, and reducedX = true, the last element of X will be computed from the other ones"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "19" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4495" startColumn = "7" endLine = "4496" endColumn = "99" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.use_HeatTransfer"
+  valueReference = "1289"
+  description = "= true to use the HeatTransfer model"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "20" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "229" startColumn = "9" endLine = "231" endColumn = "74" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.use_Re"
+  valueReference = "1290"
+  description = "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "21" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "216" startColumn = "9" endLine = "218" endColumn = "85" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.use_T_start"
+  valueReference = "1291"
+  description = "= true, use T_start, otherwise h_start"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "22" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "560" startColumn = "7" endLine = "562" endColumn = "66" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank1.use_portsData"
+  valueReference = "1292"
+  description = "= false to neglect pressure loss and kinetic energy"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "23" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "203" startColumn = "9" endLine = "205" endColumn = "73" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.heatTransfer.use_k"
+  valueReference = "1293"
+  description = "= true to use k value for thermal isolation"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "24" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "486" startColumn = "5" endLine = "488" endColumn = "64" fileWritable = "false">
+  <Boolean useStart="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.initialize_p"
+  valueReference = "1294"
+  description = "= true to set up initial equations for pressure"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "25" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "605" startColumn = "7" endLine = "606" endColumn = "56" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.preferredMediumStates"
+  valueReference = "1295"
+  description = "= true if StateSelect.prefer shall be used for the independent property variables of the medium"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "26" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4492" startColumn = "7" endLine = "4494" endColumn = "59" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.medium.standardOrderComponents"
+  valueReference = "1296"
+  description = "If true, and reducedX = true, the last element of X will be computed from the other ones"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "27" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Media/package.mo" startLine = "4495" startColumn = "7" endLine = "4496" endColumn = "99" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.use_HeatTransfer"
+  valueReference = "1297"
+  description = "= true to use the HeatTransfer model"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "28" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "229" startColumn = "9" endLine = "231" endColumn = "74" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.use_Re"
+  valueReference = "1298"
+  description = "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "29" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "216" startColumn = "9" endLine = "218" endColumn = "85" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.use_T_start"
+  valueReference = "1299"
+  description = "= true, use T_start, otherwise h_start"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "30" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "560" startColumn = "7" endLine = "562" endColumn = "66" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "tank2.use_portsData"
+  valueReference = "1300"
+  description = "= false to neglect pressure loss and kinetic energy"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "31" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Vessels.mo" startLine = "203" startColumn = "9" endLine = "205" endColumn = "73" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.allowFlowReversal"
+  valueReference = "1301"
+  description = "= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "32" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "225" startColumn = "5" endLine = "227" endColumn = "59" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_a_exposesState"
+  valueReference = "1302"
+  description = "= true if port_a exposes the state of a fluid volume"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "33" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "243" startColumn = "5" endLine = "244" endColumn = "61" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.port_b_exposesState"
+  valueReference = "1303"
+  description = "= true if port_b.p exposes the state of a fluid volume"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "34" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "245" startColumn = "5" endLine = "246" endColumn = "63" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.showDesignFlowDirection"
+  valueReference = "1304"
+  description = "= false to hide the arrow in the model icon"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "noAlias"
+  classIndex = "35" classType = "bPar"
+  isProtected = "true"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "247" startColumn = "5" endLine = "248" endColumn = "52" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.show_T"
+  valueReference = "1305"
+  description = "= true, if temperatures at port_a and port_b are computed"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "36" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "324" startColumn = "3" endLine = "326" endColumn = "59" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valve.show_V_flow"
+  valueReference = "1306"
+  description = "= true, if volume flow rate at inflowing port is computed"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "37" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Fluid/Interfaces.mo" startLine = "327" startColumn = "3" endLine = "329" endColumn = "59" fileWritable = "false">
+  <Boolean useStart="true" start="true" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valveOpening.startValue"
+  valueReference = "1307"
+  description = "Output before startTime"
+  variability = "parameter" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "true"
+  alias = "noAlias"
+  classIndex = "38" classType = "bPar"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Blocks/Sources.mo" startLine = "2735" startColumn = "5" endLine = "2735" endColumn = "65" fileWritable = "false">
+  <Boolean useStart="true" start="false" fixed="true" />
+  </ScalarVariable>
+  <ScalarVariable
+  name = "valveOpening.y"
+  valueReference = "1308"
+  description = "Connector of Boolean output signal"
+  variability = "discrete" isDiscrete = "true"
+  causality = "internal" isValueChangeable = "false"
+  alias = "alias" aliasVariable="valve.open"
+  classIndex = "0" classType = "bAli"
+  isProtected = "false"
+  fileName = "/opt/openmodelica/lib/omlibrary/Modelica 3.2.1/Blocks/Interfaces.mo" startLine = "1132" startColumn = "5" endLine = "1134" endColumn = "26" fileWritable = "false">
+  <Boolean useStart="false" fixed="false" />
+  </ScalarVariable>
+
+  </ModelVariables>
+  
+  
+</fmiModelDescription>
+
