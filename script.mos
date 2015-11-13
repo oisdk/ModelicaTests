@@ -1,4 +1,4 @@
 loadModel(Modelica);
-loadFile("Pipes.mo");
-simulate(Pipes, outputFormat="csv", stopTime=30);
+loadFile("PipesValveLinear.mo");
+simulate(PipesValveLinear, outputFormat="csv", stopTime=30);
 plot(tank2.level);

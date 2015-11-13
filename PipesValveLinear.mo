@@ -1,4 +1,4 @@
-model Pipes
+model PipesValveLinear
   extends Modelica.Icons.Example;
   Modelica.Fluid.Vessels.OpenTank tank1(
     redeclare package Medium = 
@@ -26,7 +26,7 @@ model Pipes
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
         0.1, height=0.5)},
     level_start=0);
-  Modelica.Fluid.Valves.ValveIncompressible valve(
+  Modelica.Fluid.Valves.ValveLinear valve(
     redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater,
     dp_nominal=101325,
     m_flow_nominal=0.1
@@ -40,4 +40,4 @@ equation
   connect(pipe.port_b, valve.port_a);
   connect(valveOpening.y, valve.opening);
   connect(valve.port_b, tank2.ports[1]);
-end Pipes;
+end PipesValveLinear;
