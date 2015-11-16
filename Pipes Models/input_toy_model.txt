@@ -3,7 +3,7 @@ path_to_obs         = None                    # path to observed data
 param_to_fit        = time                    # parameters to fit
 param_to_sim        = time                    # parameters needed for simulation
 
-prior_func          = flat_prior flat_prior   # one prior function for each parameter
+prior_func          = flat_prior              # one prior function for each parameter
                                               # under consideration 
 
 time_prior_par_name = pmin pmax               # parameters for prior distribution  
@@ -13,8 +13,8 @@ time_lim            = 1.0  30.0               # extreme limits for parametes
 
 time                = 0                       # parameters values need for simulation
 
-M                   = 10                      # number of particle in each particle system
-Mini                = 20                      # number of draws for 1st particle system
+M                   = 4                       # number of particle in each particle system
+Mini                = 8                       # number of draws for 1st particle system
 delta               = 0.50                    # convergence criteria
 qthreshold          = 0.75                    # quantile in distance threshold 
 

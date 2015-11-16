@@ -32,7 +32,7 @@ model PipesValveLinear
     m_flow_nominal=0.1
   );
   Modelica.Blocks.Sources.Ramp valveOpening(
-    duration=20
+    duration=21.901329274
   );
   inner Modelica.Fluid.System system;
 equation 
